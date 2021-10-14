@@ -22,7 +22,8 @@ public class Order implements VoObject {
      * @return Vo对象
      */
     @Override
-    public Object createVo() {
+    public VoObject createVo() {
         return null;
     }
+
 }
