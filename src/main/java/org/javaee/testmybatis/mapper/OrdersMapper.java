@@ -10,7 +10,7 @@ public interface OrdersMapper {
 
     OrderPo selectOrderById(Integer id);
 
-    ArrayList<OrderItem> selectAllOrderItems(Integer pid);
+    ArrayList<OrderItem> selectAllOrderItems(Integer id);
 
     void insertNewOrder(Object o);
 
