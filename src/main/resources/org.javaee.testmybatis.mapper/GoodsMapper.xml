@@ -5,12 +5,14 @@
 
     </sql>
 
-    <select id="searchOrders" parameterType="OrderPo" resultType="OrderPo">
+    <select id="selectOrderById" parameterType="Integer" resultType="OrderPo">
         SELECT
         <include refid="Orders_List"/>
-        FROM ####
+        FROM orders
         WHERE id = #{id}
     </select>
+
+
 
 
 </mapper>
