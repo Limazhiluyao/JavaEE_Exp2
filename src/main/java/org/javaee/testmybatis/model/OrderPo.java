@@ -5,6 +5,7 @@ import lombok.Data;
 import org.apache.ibatis.type.Alias;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @ApiModel(description = "订单持久化对象")
@@ -63,5 +64,7 @@ public class OrderPo {
     Date gmt_modified;
 
     int groupon_id;
+
+    List<OrderItemPo> orderItemPoList;
 
 }

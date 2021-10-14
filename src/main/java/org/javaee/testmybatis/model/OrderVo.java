@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Data
@@ -62,4 +63,6 @@ public class OrderVo {
     Date gmt_modified;
 
     int groupon_id;
+
+    List<OrderItemPo> orderItemPoList;
 }
