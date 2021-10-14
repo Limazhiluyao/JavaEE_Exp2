@@ -2,7 +2,7 @@ package org.javaee.testmybatis.model;
 
 import java.util.Date;
 
-public class OrderItem {
+public class OrderItemPo {
     int id;
 
     int order_id;

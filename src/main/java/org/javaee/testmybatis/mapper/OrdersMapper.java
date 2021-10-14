@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface OrdersMapper {
 
-    List<OrderPo> searchOrders(Integer id);
-
+    OrderPo searchOrders(Integer id);
 
 }
