@@ -67,4 +67,6 @@ public class OrderPo {
 
     private List<OrderItemPo> orderItemPoList;
 
+    List<OrderItemPo> orderItemPoList;
+
 }

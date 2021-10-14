@@ -10,59 +10,59 @@ import java.util.List;
 @Data
 @ApiModel(description = "订单视图对象")
 public class OrderVo {
-    private int id;
+    int id;
 
-    private int customer_id;
+    int customer_id;
 
-    private int shop_id;
+    int shop_id;
 
-    private String order_sn;
+    String order_sn;
 
-    private int pid;
+    int pid;
 
-    private String consignee;
+    String consignee;
 
-    private int region_id;
+    int region_id;
 
-    private String address;
+    String address;
 
-    private String mobile;
+    String mobile;
 
-    private String message;
+    String message;
 
-    private int order_type;
+    int order_type;
 
-    private int freight_price;
+    int freight_price;
 
-    private int coupon_id;
+    int coupon_id;
 
-    private int coupon_activity_id;
+    int coupon_activity_id;
 
-    private int discount_price;
+    int discount_price;
 
-    private int origin_price;
+    int origin_price;
 
-    private int presale_id;
+    int presale_id;
 
-    private int groupon_discount;
+    int groupon_discount;
 
-    private int rebate_num;
+    int rebate_num;
 
-    private Date confirm_time;
+    Date confirm_time;
 
-    private String shipment_sn;
+    String shipment_sn;
 
-    private int state;
+    int state;
 
-    private int substate;
+    int substate;
 
-    private int be_deleted;
+    int be_deleted;
 
-    private Date gmt_create;
+    Date gmt_create;
 
-    private Date gmt_modified;
+    Date gmt_modified;
 
-    private int groupon_id;
+    int groupon_id;
 
-    private List<OrderItemPo> orderItemPoList;
+    List<OrderItemPo> orderItemPoList;
 }
