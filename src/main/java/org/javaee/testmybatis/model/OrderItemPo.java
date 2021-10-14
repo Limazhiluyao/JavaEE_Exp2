@@ -6,26 +6,28 @@ import java.util.Date;
 
 @Data
 public class OrderItemPo {
-    int id;
 
-    int order_id;
+    private int id;
 
-    int goods_sku_id;
+    private int order_id;
 
-    int quantity;
+    private int goods_sku_id;
 
-    int price;
+    private int quantity;
 
-    int discount;
+    private int price;
 
-    String name;
+    private int discount;
 
-    int coupon_activity_id;
+    private String name;
 
-    int be_share_id;
+    private int coupon_activity_id;
 
-    Date gmt_create;
+    private int be_share_id;
 
-    Date gmt_modified;
+    private Date gmt_create;
+
+    private Date gmt_modified;
+    
 
 }
