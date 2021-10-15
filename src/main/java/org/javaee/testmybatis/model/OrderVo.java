@@ -14,7 +14,7 @@ import java.util.List;
 public class OrderVo {
 
     //按照前端传进来的新建订单的属性设计字段
-    
+
     private int id;
 
     private int customer_id;
@@ -73,6 +73,7 @@ public class OrderVo {
 
     public Order createOrder() {
         Order order = new Order();
+        order
         List<OrderItem> orderItemList = new ArrayList<>(orderItemVoList.size());
         if (orderItemVoList != null)
             for (OrderItemVo orderItemVo : orderItemVoList)
