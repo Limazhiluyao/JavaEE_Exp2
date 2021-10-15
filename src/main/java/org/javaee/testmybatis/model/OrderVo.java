@@ -64,5 +64,5 @@ public class OrderVo {
 
     private int groupon_id;
 
-    private List<OrderItemPo> orderItemPoList;
+    private List<OrderItemVo> orderItemVoList;
 }
