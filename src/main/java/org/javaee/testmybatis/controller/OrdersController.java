@@ -42,8 +42,19 @@ public class OrdersController {
 
     @PostMapping("")
     public Object insertOrder(@RequestBody OrderVo orderVo) {
-        ordersService.insertOrder(orderVo);
-
+        ReturnObject<VoObject> returnObject = ordersService.insertOrder(orderVo);
+        ResponseCode responseCode = returnObject.getCode();
+        switch (responseCode) {
+            case OK:
+                if (returnObject.getData() != null) {
+                    httpServletResponse.setStatus(HttpStatus.CREATED.value());
+                    return ResponseUtil.ok(returnObject.getData());
+                } else {
+                    return ResponseUtil.ok();
+                }
+            default:
+                return ResponseUtil.fail(returnObject.getCode(), returnObject.getErrmsg());
+        }
     }
 
 }

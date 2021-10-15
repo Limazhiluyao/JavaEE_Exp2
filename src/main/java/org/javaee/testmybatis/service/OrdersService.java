@@ -10,8 +10,6 @@ import org.javaee.testmybatis.util.ReturnObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 
 @Service
 public class OrdersService {
@@ -26,15 +24,23 @@ public class OrdersService {
             if (returnOrder.getData() != null)
                 returnVoObject = new ReturnObject<>(returnOrder.getData());
             else
-                returnVoObject = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST);
+                returnVoObject = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, "失败");
         } else
             returnVoObject = new ReturnObject<>(returnOrder.getCode(), returnOrder.getErrmsg());
 
         return returnVoObject;
     }
 
-    public void insertOrder(OrderVo orderVo) {
-        ordersDao.createNewOrder(orderVo.createOrder());
+    public ReturnObject<VoObject> insertOrder(OrderVo orderVo) {
+        ReturnObject<Object> returnOrder = ordersDao.createNewOrder(orderVo.createOrder());
+        ReturnObject<VoObject> returnVoObject = null;
+
+        if (returnOrder.getCode().equals(ResponseCode.OK))
+            returnVoObject = new ReturnObject<>(ResponseCode.OK);
+        else
+            returnVoObject = new ReturnObject<>(returnOrder.getCode(), returnOrder.getErrmsg());
+
+        return returnVoObject;
 
     }
 }

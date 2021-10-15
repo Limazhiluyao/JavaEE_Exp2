@@ -20,4 +20,5 @@ public class OrderItemVo {
         orderItem.setCoupon_activity_id(this.couponActId);
         return orderItem;
     }
+
 }

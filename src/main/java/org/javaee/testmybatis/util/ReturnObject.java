@@ -16,7 +16,7 @@ public class ReturnObject<T> {
     /**
      * 自定义的错误码
      */
-    String errmsg = null;
+    String errmsg = "成功";
 
     /**
      * 返回值
@@ -27,6 +27,7 @@ public class ReturnObject<T> {
      * 默认构造函数，错误码为OK
      */
     public ReturnObject() {
+
     }
 
     /**
