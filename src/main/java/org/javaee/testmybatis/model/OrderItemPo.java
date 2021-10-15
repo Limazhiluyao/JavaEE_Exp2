@@ -1,10 +1,12 @@
 package org.javaee.testmybatis.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
+@ApiModel(description = "订单明细持久化对象")
 public class OrderItemPo {
 
     private int id;
@@ -28,6 +30,6 @@ public class OrderItemPo {
     private Date gmt_create;
 
     private Date gmt_modified;
-    
+
 
 }

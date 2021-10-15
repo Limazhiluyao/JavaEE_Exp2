@@ -11,6 +11,10 @@ public class Order implements VoObject {
 
     private List<OrderItem> orderItemList;
 
+    public Order() {
+        this.orderPo = new OrderPo();
+    }
+
     public Order(OrderPo orderPo) {
         this.orderPo = orderPo;
     }

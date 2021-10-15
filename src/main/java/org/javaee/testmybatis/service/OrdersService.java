@@ -1,6 +1,6 @@
 package org.javaee.testmybatis.service;
 
-import org.javaee.testmybatis.model.OrderPo;
+
 import org.javaee.testmybatis.model.OrderVo;
 import org.javaee.testmybatis.dao.OrdersDao;
 import org.javaee.testmybatis.model.Order;
@@ -34,6 +34,7 @@ public class OrdersService {
     }
 
     public void insertOrder(OrderVo orderVo) {
+        ordersDao.createNewOrder(orderVo.createOrder());
 
     }
 }
