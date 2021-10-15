@@ -43,7 +43,7 @@ public class Order implements VoObject {
     @Override
     public Object createVo() {
         ArrayList<HashMap<String,Object>> orderItems = new ArrayList();
-        for (OrderItem item: orderItemList){
+        for (OrderItem item: this.orderItems){
             HashMap<String,Object> oneItem = new HashMap<>();
 
             orderItems.add(oneItem);

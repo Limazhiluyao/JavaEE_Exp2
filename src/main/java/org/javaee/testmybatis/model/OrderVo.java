@@ -14,17 +14,6 @@ import java.util.List;
 public class OrderVo {
 
     //按照前端传进来的新建订单的属性设计字段
-
-    private int id;
-
-    private int customer_id;
-
-    private int shop_id;
-
-    private String order_sn;
-
-    private int pid;
-
     private String consignee;
 
     private int region_id;
@@ -35,37 +24,9 @@ public class OrderVo {
 
     private String message;
 
-    private int order_type;
-
-    private int freight_price;
-
     private int coupon_id;
 
-    private int coupon_activity_id;
-
-    private int discount_price;
-
-    private int origin_price;
-
     private int presale_id;
-
-    private int groupon_discount;
-
-    private int rebate_num;
-
-    private Date confirm_time;
-
-    private String shipment_sn;
-
-    private int state;
-
-    private int substate;
-
-    private int be_deleted;
-
-    private Date gmt_create;
-
-    private Date gmt_modified;
 
     private int groupon_id;
 
@@ -73,12 +34,21 @@ public class OrderVo {
 
     public Order createOrder() {
         Order order = new Order();
-        order
+        order.setConsignee(this.consignee);
+        order.setRegion_id(this.region_id);
+        order.setAddress(this.address);
+        order.setMobile(this.mobile);
+        order.setMessage(this.message);
+        order.setCoupon_id(this.coupon_id);
+        order.setPid(this.presale_id);
+        order.setGroupon_id(this.groupon_id);
+
         List<OrderItem> orderItemList = new ArrayList<>(orderItemVoList.size());
         if (orderItemVoList != null)
             for (OrderItemVo orderItemVo : orderItemVoList)
                 orderItemList.add(orderItemVo.createOrderItem());
 
+        order.setOrderItemList(orderItemList);
         return order;
     }
 }
