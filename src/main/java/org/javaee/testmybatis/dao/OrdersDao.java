@@ -47,13 +47,14 @@ public class OrdersDao {
         int flag = ordersMapper.insertNewOrder(order.getOrderPo());
         if (flag == 0)
             return new ReturnObject<>(ResponseCode.FIELD_NOTVALID, "失败");
-
+        
         List<OrderItem> orderItemList = order.getOrderItemList();
-        for (OrderItem orderItem : orderItemList) {
-            flag = ordersMapper.insertNewOrderItem(orderItem.getOrderItemPo());
-            if (flag == 0)
-                return new ReturnObject<>(ResponseCode.FIELD_NOTVALID, "失败");
-        }
+        if (orderItemList != null)
+            for (OrderItem orderItem : orderItemList) {
+                flag = ordersMapper.insertNewOrderItem(orderItem.getOrderItemPo());
+                if (flag == 0)
+                    return new ReturnObject<>(ResponseCode.FIELD_NOTVALID, "失败");
+            }
 
         return new ReturnObject<>(ResponseCode.OK);
 

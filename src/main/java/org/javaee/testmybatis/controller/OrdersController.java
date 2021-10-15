@@ -6,11 +6,8 @@ import org.javaee.testmybatis.util.ResponseCode;
 import org.javaee.testmybatis.util.ResponseUtil;
 import org.javaee.testmybatis.util.ReturnObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.javaee.testmybatis.service.OrdersService;
-
-import javax.servlet.http.HttpServletResponse;
 
 
 @RestController
@@ -44,7 +41,6 @@ public class OrdersController {
         switch (responseCode) {
             case OK:
                 if (returnObject.getData() != null) {
-                    // httpServletResponse.setStatus(HttpStatus.CREATED.value());
                     return ResponseUtil.ok(returnObject.getData());
                 } else {
                     return ResponseUtil.ok();
