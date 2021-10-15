@@ -33,49 +33,7 @@ public class Order implements VoObject {
     public void setOrderPo(OrderPo orderPo) {
         this.orderPo = orderPo;
     }
-
-
-    /**
-     * 创建Vo对象
-     *
-     * @return Vo对象
-     */
-    @Override
-    public Object createVo() {
-        ArrayList<HashMap<String, Object>> orderItemInfos = new ArrayList();
-        for (OrderItem orderItem : this.orderItems)
-            orderItemInfos.add(orderItem.createVo());
-
-
-        HashMap<String, Object> retOrderInfo = new HashMap<>();
-        retOrderInfo.put("id", orderPo.getId());
-        retOrderInfo.put("orderSn", orderPo.getOrder_sn());
-        retOrderInfo.put("pid", orderPo.getPid());
-        retOrderInfo.put("orderType", orderPo.getOrder_type());
-        retOrderInfo.put("state", orderPo.getState());
-        retOrderInfo.put("subState", orderPo.getSubstate());
-        retOrderInfo.put("gmtCreate", orderPo.getGmt_create());
-        retOrderInfo.put("gmtModified", orderPo.getGmt_modified());
-        retOrderInfo.put("confirmTime", orderPo.getConfirm_time());
-        retOrderInfo.put("originPrice", orderPo.getOrigin_price());
-        retOrderInfo.put("discountPrice", orderPo.getDiscount_price());
-        retOrderInfo.put("freightPrice", orderPo.getFreight_price());
-        retOrderInfo.put("rebateNum", orderPo.getRebate_num());
-        retOrderInfo.put("message", orderPo.getMessage());
-        retOrderInfo.put("regionId", orderPo.getRegion_id());
-        retOrderInfo.put("address", orderPo.getAddress());
-        retOrderInfo.put("mobile", orderPo.getMobile());
-        retOrderInfo.put("consignee", orderPo.getConsignee());
-        retOrderInfo.put("couponId", orderPo.getCoupon_id());
-        retOrderInfo.put("grouponId", orderPo.getGroupon_id());
-        retOrderInfo.put("presaleId", orderPo.getPresale_id());
-        retOrderInfo.put("shipmentSn", orderPo.getShipment_sn());
-        retOrderInfo.put("orderItems", orderItemInfos);
-
-        return retOrderInfo;
-    }
-
-
+    
     public int getId() {
         return orderPo.getId();
     }
@@ -292,4 +250,42 @@ public class Order implements VoObject {
         orderPo.setGroupon_id(groupon_id);
     }
 
+    /**
+     * 创建Vo对象
+     *
+     * @return Vo对象
+     */
+    @Override
+    public Object createVo() {
+        ArrayList<HashMap<String, Object>> orderItemInfos = new ArrayList();
+        for (OrderItem orderItem : this.orderItems)
+            orderItemInfos.add(orderItem.createVo());
+
+        HashMap<String, Object> retOrderInfo = new HashMap<>();
+        retOrderInfo.put("id", orderPo.getId());
+        retOrderInfo.put("orderSn", orderPo.getOrder_sn());
+        retOrderInfo.put("pid", orderPo.getPid());
+        retOrderInfo.put("orderType", orderPo.getOrder_type());
+        retOrderInfo.put("state", orderPo.getState());
+        retOrderInfo.put("subState", orderPo.getSubstate());
+        retOrderInfo.put("gmtCreate", orderPo.getGmt_create());
+        retOrderInfo.put("gmtModified", orderPo.getGmt_modified());
+        retOrderInfo.put("confirmTime", orderPo.getConfirm_time());
+        retOrderInfo.put("originPrice", orderPo.getOrigin_price());
+        retOrderInfo.put("discountPrice", orderPo.getDiscount_price());
+        retOrderInfo.put("freightPrice", orderPo.getFreight_price());
+        retOrderInfo.put("rebateNum", orderPo.getRebate_num());
+        retOrderInfo.put("message", orderPo.getMessage());
+        retOrderInfo.put("regionId", orderPo.getRegion_id());
+        retOrderInfo.put("address", orderPo.getAddress());
+        retOrderInfo.put("mobile", orderPo.getMobile());
+        retOrderInfo.put("consignee", orderPo.getConsignee());
+        retOrderInfo.put("couponId", orderPo.getCoupon_id());
+        retOrderInfo.put("grouponId", orderPo.getGroupon_id());
+        retOrderInfo.put("presaleId", orderPo.getPresale_id());
+        retOrderInfo.put("shipmentSn", orderPo.getShipment_sn());
+        retOrderInfo.put("orderItems", orderItemInfos);
+
+        return retOrderInfo;
+    }
 }
