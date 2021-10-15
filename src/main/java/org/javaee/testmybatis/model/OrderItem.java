@@ -2,6 +2,7 @@ package org.javaee.testmybatis.model;
 
 
 import java.util.Date;
+import java.util.HashMap;
 
 public class OrderItem implements VoObject {
 
@@ -113,8 +114,18 @@ public class OrderItem implements VoObject {
      * @return Vo对象
      */
     @Override
-    public Object createVo() {
-        return null;
+    public HashMap<String, Object> createVo() {
+        HashMap<String, Object> orderItemInfo = new HashMap<>();
+        orderItemInfo.put("skuId", this.getGoods_sku_id());
+        orderItemInfo.put("orderId", this.getOrder_id());
+        orderItemInfo.put("name", this.getName());
+        orderItemInfo.put("quantity", this.getQuantity());
+        orderItemInfo.put("price", this.getPrice());
+        orderItemInfo.put("discount", this.getDiscount());
+        orderItemInfo.put("couponActId", this.getCoupon_activity_id());
+        orderItemInfo.put("beSharedId", this.getBe_share_id());
+
+        return orderItemInfo;
     }
 
 }
