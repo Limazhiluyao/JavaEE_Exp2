@@ -9,11 +9,13 @@ import org.javaee.testmybatis.model.OrderPo;
 import org.javaee.testmybatis.util.ResponseCode;
 import org.javaee.testmybatis.util.ReturnObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
+@Repository
 public class OrdersDao {
 
     @Autowired
