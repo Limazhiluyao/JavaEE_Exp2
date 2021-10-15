@@ -24,7 +24,7 @@ public class OrdersService {
             if (returnOrder.getData().getOrderPo() != null)
                 returnVoObject = new ReturnObject<>(returnOrder.getData());
             else
-                returnVoObject = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, "失败");
+                returnVoObject = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, "资源不存在");
         } else
             returnVoObject = new ReturnObject<>(returnOrder.getCode(), returnOrder.getErrmsg());
 
