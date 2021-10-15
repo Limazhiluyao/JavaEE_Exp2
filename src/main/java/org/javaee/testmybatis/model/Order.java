@@ -42,14 +42,44 @@ public class Order implements VoObject {
      */
     @Override
     public Object createVo() {
-        ArrayList<HashMap<String,Object>> orderItems = new ArrayList();
-        for (OrderItem item: orderItemList){
+        ArrayList<HashMap<String,Object>> orderItemsHashMap = new ArrayList();
+        for (OrderItem item: this.orderItems){
             HashMap<String,Object> oneItem = new HashMap<>();
-
-            orderItems.add(oneItem);
+            oneItem.put("skuId",item.getGoods_sku_id());
+            oneItem.put("orderId",item.getOrder_id());
+            oneItem.put("name",item.getName());
+            oneItem.put("quantity",item.getQuantity());
+            oneItem.put("price",item.getPrice());
+            oneItem.put("discount",item.getDiscount());
+            oneItem.put("couponActId",item.getCoupon_activity_id());
+            oneItem.put("beSharedId",item.getBe_share_id());
+            orderItemsHashMap.add(oneItem);
         }
 
         HashMap<String,Object> retOrderInfo = new HashMap<>();
+        retOrderInfo.put("id",orderPo.getId());
+        retOrderInfo.put("orderSn",orderPo.getOrder_sn());
+        retOrderInfo.put("pid",orderPo.getPid());
+        retOrderInfo.put("orderType",orderPo.getOrder_type());
+        retOrderInfo.put("state",orderPo.getState());
+        retOrderInfo.put("subState",orderPo.getSubstate());
+        retOrderInfo.put("gmtCreate",orderPo.getGmt_create());
+        retOrderInfo.put("gmtModified",orderPo.getGmt_modified());
+        retOrderInfo.put("confirmTime",orderPo.getConfirm_time());
+        retOrderInfo.put("originPrice",orderPo.getOrigin_price());
+        retOrderInfo.put("discountPrice",orderPo.getDiscount_price());
+        retOrderInfo.put("freightPrice",orderPo.getFreight_price());
+        retOrderInfo.put("rebateNum",orderPo.getRebate_num());
+        retOrderInfo.put("message",orderPo.getMessage());
+        retOrderInfo.put("regionId",orderPo.getRegion_id());
+        retOrderInfo.put("address",orderPo.getAddress());
+        retOrderInfo.put("mobile",orderPo.getMobile());
+        retOrderInfo.put("consignee",orderPo.getConsignee());
+        retOrderInfo.put("couponId",orderPo.getCoupon_id());
+        retOrderInfo.put("grouponId",orderPo.getGroupon_id());
+        retOrderInfo.put("presaleId",orderPo.getPresale_id());
+        retOrderInfo.put("shipmentSn",orderPo.getShipment_sn());
+        retOrderInfo.put("orderItems",orderItemsHashMap);
 
         return retOrderInfo;
     }
