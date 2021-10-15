@@ -19,8 +19,8 @@ public class OrdersService {
     @Autowired
     private OrdersDao ordersDao;
 
-    public ReturnObject<VoObject> selectOrderById(Integer id) {
-        ReturnObject<Order> returnOrder = ordersDao.searchOrdersById(id);
+    public ReturnObject<VoObject> findOrderById(Integer id) {
+        ReturnObject<Order> returnOrder = ordersDao.findOrderById(id);
         ReturnObject<VoObject> returnVoObject = null;
         if (returnOrder.getCode().equals(ResponseCode.OK)) {
             if (returnOrder.getData() != null)

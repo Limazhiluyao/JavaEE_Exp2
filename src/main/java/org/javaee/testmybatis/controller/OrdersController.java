@@ -24,8 +24,8 @@ public class OrdersController {
     private HttpServletResponse httpServletResponse;
 
     @GetMapping("{id}")
-    public Object selectOrderById(@PathVariable("id") Integer id) {
-        ReturnObject<VoObject> returnObject = ordersService.selectOrderById(id);
+    public Object findOrderById(@PathVariable("id") Integer id) {
+        ReturnObject<VoObject> returnObject = ordersService.findOrderById(id);
         ResponseCode responseCode = returnObject.getCode();
         switch (responseCode) {
             case RESOURCE_ID_NOTEXIST:
@@ -38,7 +38,7 @@ public class OrdersController {
         }
 
     }
-    
+
 
     @PostMapping("")
     public Object insertOrder(@RequestBody OrderVo orderVo) {

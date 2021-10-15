@@ -2,16 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.javaee.testmybatis.mapper.OrdersMapper">
 
-    <select id="selectOrderById" parameterType="Integer" resultType="OrderPo">
+    <select id="selectOrderById" parameterType="Integer" resultType="org.javaee.testmybatis.model.OrderPo">
         SELECT *
         FROM orders
         WHERE id = #{id}
     </select>
 
-    <select id="selectAllOrderItems" parameterType="Integer">
+    <select id="selectOrderItemsByOrderId" parameterType="Integer"
+            resultType="org.javaee.testmybatis.model.OrderItemPo">
         select *
         from order_item
-        where order_id = #{id}
+        where order_id = #{order_id}
     </select>
 
     <insert id="insertNewOrder" parameterType="org.javaee.testmybatis.model.OrderPo">
@@ -49,7 +50,7 @@
                 #{discount},
                 #{name},
                 #{coupon_activity_id},
-                #{be_shared_id} )
+                #{be_shared_id})
     </insert>
 
 </mapper>

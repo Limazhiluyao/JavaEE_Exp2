@@ -1,7 +1,5 @@
 package org.javaee.testmybatis.model;
 
-import lombok.Data;
-
 
 public class OrderItem implements VoObject {
 

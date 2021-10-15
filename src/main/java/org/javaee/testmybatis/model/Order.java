@@ -1,12 +1,15 @@
 package org.javaee.testmybatis.model;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
 
+import java.util.List;
 import java.util.Map;
+
 
 public class Order implements VoObject {
 
     private OrderPo orderPo;
+
+    private List<OrderItem> orderItemList;
 
     public Order(OrderPo orderPo) {
         this.orderPo = orderPo;
@@ -14,6 +17,18 @@ public class Order implements VoObject {
 
     public OrderPo getOrderPo() {
         return orderPo;
+    }
+
+    public List<OrderItem> getOrderItemList() {
+        return orderItemList;
+    }
+
+    public void setOrderItemList(List<OrderItem> orderItemList) {
+        this.orderItemList = orderItemList;
+    }
+
+    public void setOrderPo(OrderPo orderPo) {
+        this.orderPo = orderPo;
     }
 
     /**
