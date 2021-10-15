@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.javaee.testmybatis.mapper.OrdersMapper">
+
+    <sql id="Order_Column_List">
+        id
+        ,
+        customer_id,
+        shop_id,
+        order_sn,
+        pid,
+        consignee,
+        region_id,
+        address,
+        mobile,
+        message,
+        order_type,
+        freight_price,
+        coupon_id,
+        coupon_activity_id,
+        discount_price,
+        origin_price,
+        presale_id,
+        groupon_discount,
+        rebate_num,
+        confirm_time,
+        shipment_sn,
+        state,
+        substate,
+        be_deleted,
+        gmt_create,
+        gmt_modified,
+        groupon_id
+    </sql>
+
+    <sql id="OrderItem_Column_List">
+        id
+        ,
+        order_id,
+        goods_sku_id,
+        quantity,
+        price,
+        discount,
+        name,
+        coupon_activity_id,
+        be_share_id
+
+    </sql>
+
+    <select id="selectOrderById" parameterType="Integer" resultType="org.javaee.testmybatis.model.OrderPo">
+        SELECT *
+        FROM orders
+        WHERE id = #{id}
+    </select>
+
+    <select id="selectOrderItemsByOrderId" parameterType="Integer"
+            resultType="org.javaee.testmybatis.model.OrderItemPo">
+        SELECT *
+        FROM order_item
+        WHERE order_id = #{orderId}
+    </select>
+
+    <insert id="insertNewOrder" parameterType="org.javaee.testmybatis.model.OrderPo">
+        INSERT
+        orders (<include refid="Order_Column_List"/>)
+        VALUES (
+        #{id},
+        #{customer_id},
+        #{shop_id},
+        #{order_sn},
+        #{pid},
+        #{consignee},
+        #{region_id},
+        #{address},
+        #{mobile},
+        #{message},
+        #{order_type},
+        #{freight_price},
+        #{coupon_id},
+        #{coupon_activity_id},
+        #{discount_price},
+        #{origin_price},
+        #{presale_id},
+        #{groupon_discount},
+        #{rebate_num},
+        #{confirm_time},
+        #{shipment_sn},
+        #{state},
+        #{substate},
+        #{be_deleted},
+        #{gmt_create},
+        #{gmt_modified},
+        #{groupon_id}
+        )
+    </insert>
+
+    <insert id="insertNewOrderItem" parameterType="org.javaee.testmybatis.model.OrderItem">
+        INSERT INTO order_item (<include refid="OrderItem_Column_List"/>)
+        VALUES (#{id},
+        #{order_id},
+        #{goods_sku_id},
+        #{quantity},
+        #{price},
+        #{discount},
+        #{name},
+        #{coupon_activity_id},
+        #{be_share_id})
+    </insert>
+
+</mapper>
+

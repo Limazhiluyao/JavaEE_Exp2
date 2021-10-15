@@ -21,7 +21,7 @@ public class OrdersService {
         ReturnObject<Order> returnOrder = ordersDao.findOrderById(id);
         ReturnObject<VoObject> returnVoObject = null;
         if (returnOrder.getCode().equals(ResponseCode.OK)) {
-            if (returnOrder.getData() != null)
+            if (returnOrder.getData().getOrderPo() != null)
                 returnVoObject = new ReturnObject<>(returnOrder.getData());
             else
                 returnVoObject = new ReturnObject<>(ResponseCode.RESOURCE_ID_NOTEXIST, "失败");

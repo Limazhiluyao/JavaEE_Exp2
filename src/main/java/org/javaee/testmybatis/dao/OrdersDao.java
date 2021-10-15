@@ -29,12 +29,14 @@ public class OrdersDao {
         OrderPo orderPo = ordersMapper.selectOrderById(id);
         Order returnOrder = new Order(orderPo);
 
-        // 根据OrderId查找OrderItemPo，并交由OrderItem代理
-        List<OrderItemPo> orderItemPoList = ordersMapper.selectOrderItemsByOrderId(orderPo.getId());
-        List<OrderItem> orderItemList = new ArrayList<>(orderItemPoList.size());
-        for (OrderItemPo orderItemPo : orderItemPoList)
-            orderItemList.add(new OrderItem(orderItemPo));
-
+        List<OrderItem> orderItemList = null;
+        if (orderPo != null) {
+            // 根据OrderId查找OrderItemPo，并交由OrderItem代理
+            List<OrderItemPo> orderItemPoList = ordersMapper.selectOrderItemsByOrderId(orderPo.getId());
+            orderItemList = new ArrayList<>(orderItemPoList.size());
+            for (OrderItemPo orderItemPo : orderItemPoList)
+                orderItemList.add(new OrderItem(orderItemPo));
+        }
         // 组装
         returnOrder.setOrderItemList(orderItemList);
 

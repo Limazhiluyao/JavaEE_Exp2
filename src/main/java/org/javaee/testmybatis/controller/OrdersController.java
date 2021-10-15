@@ -20,19 +20,16 @@ public class OrdersController {
     @Autowired
     private OrdersService ordersService;
 
-    @Autowired
-    private HttpServletResponse httpServletResponse;
 
     @GetMapping("{id}")
     public Object findOrderById(@PathVariable("id") Integer id) {
         ReturnObject<VoObject> returnObject = ordersService.findOrderById(id);
         ResponseCode responseCode = returnObject.getCode();
         switch (responseCode) {
-            case RESOURCE_ID_NOTEXIST:
-                httpServletResponse.setStatus(HttpStatus.NOT_FOUND.value());
-                return ResponseUtil.fail(returnObject.getCode(), returnObject.getErrmsg());
             case OK:
                 return ResponseUtil.ok(returnObject.getData().createVo());
+            case RESOURCE_ID_NOTEXIST:
+                return ResponseUtil.fail(returnObject.getCode(), returnObject.getErrmsg());
             default:
                 return ResponseUtil.fail(returnObject.getCode());
         }
@@ -47,7 +44,7 @@ public class OrdersController {
         switch (responseCode) {
             case OK:
                 if (returnObject.getData() != null) {
-                    httpServletResponse.setStatus(HttpStatus.CREATED.value());
+                    // httpServletResponse.setStatus(HttpStatus.CREATED.value());
                     return ResponseUtil.ok(returnObject.getData());
                 } else {
                     return ResponseUtil.ok();

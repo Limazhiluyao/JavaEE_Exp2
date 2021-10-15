@@ -84,7 +84,7 @@ public class OrderItem implements VoObject {
         orderItemPo.setCoupon_activity_id(coupon_activity_id);
     }
 
-    public int getBe_share_id() {
+    public int getBe_shared_id() {
         return orderItemPo.getBe_share_id();
     }
 
@@ -123,7 +123,7 @@ public class OrderItem implements VoObject {
         orderItemInfo.put("price", this.getPrice());
         orderItemInfo.put("discount", this.getDiscount());
         orderItemInfo.put("couponActId", this.getCoupon_activity_id());
-        orderItemInfo.put("beSharedId", this.getBe_share_id());
+        orderItemInfo.put("beSharedId", this.getBe_shared_id());
 
         return orderItemInfo;
     }

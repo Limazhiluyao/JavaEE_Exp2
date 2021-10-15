@@ -1,11 +1,10 @@
 package org.javaee.testmybatis.model;
 
-import com.sun.org.apache.xpath.internal.operations.Or;
+
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
@@ -29,8 +28,9 @@ public class OrderVo {
     private int presale_id;
 
     private int groupon_id;
+    
 
-    private List<OrderItemVo> orderItemVoList;
+    private List<OrderItemVo> orderItems;
 
     public Order createOrder() {
         Order order = new Order();
@@ -43,12 +43,13 @@ public class OrderVo {
         order.setPid(this.presale_id);
         order.setGroupon_id(this.groupon_id);
 
-        List<OrderItem> orderItemList = new ArrayList<>(orderItemVoList.size());
-        if (orderItemVoList != null)
-            for (OrderItemVo orderItemVo : orderItemVoList)
+        if (orderItems != null) {
+            List<OrderItem> orderItemList = new ArrayList<>(orderItems.size());
+            for (OrderItemVo orderItemVo : orderItems)
                 orderItemList.add(orderItemVo.createOrderItem());
+            order.setOrderItemList(orderItemList);
+        }
 
-        order.setOrderItemList(orderItemList);
         return order;
     }
 }
