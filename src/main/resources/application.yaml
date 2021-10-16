@@ -11,7 +11,7 @@ server:
       #最大工作线程数
       max: 200
       #最小工作线程数
-      min-spare: 150
+      min-spare: 200
 
 spring:
   boot:
@@ -20,14 +20,14 @@ spring:
         url: http://localhost:8081
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/javaee_lab2?serverTimezone=GMT%2B8
+    url: jdbc:mysql://172.16.2.175:3306/javaee_lab2?serverTimezone=GMT%2B8
     username: root
     password: 6585
     type: com.alibaba.druid.pool.DruidDataSource
 
     druid:
       #初始化时建立物理连接的个数
-      initial-size: 3
+      initial-size: 100
       #最小连接池数量
       min-idle: 100
       #最大连接池数量
@@ -46,7 +46,7 @@ spring:
           #是否开启慢sql查询监控
           log-slow-sql: true
           #慢SQL执行时间
-          slow-sql-millis: 100
+          slow-sql-millis: 1000
       validation-query: select 1
     sql-script-encoding: UTF-8
 
