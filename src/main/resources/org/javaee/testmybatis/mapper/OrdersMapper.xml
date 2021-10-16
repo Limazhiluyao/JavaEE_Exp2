@@ -47,7 +47,8 @@
 
     </sql>
 
-    <select id="selectOrderById" parameterType="Integer" resultType="org.javaee.testmybatis.model.OrderPo">
+    <select id="selectOrderById" parameterType="Integer" 
+    resultType="org.javaee.testmybatis.model.OrderPo">
         SELECT *
         FROM orders
         WHERE id = #{id}
@@ -61,36 +62,13 @@
     </select>
 
     <insert id="insertNewOrder" parameterType="org.javaee.testmybatis.model.OrderPo">
-        INSERT
-        orders (<include refid="Order_Column_List"/>)
+        INSERT orders (<include refid="Order_Column_List"/>)
         VALUES (
-        #{id},
-        #{customer_id},
-        #{shop_id},
-        #{order_sn},
-        #{pid},
-        #{consignee},
-        #{region_id},
-        #{address},
-        #{mobile},
-        #{message},
-        #{order_type},
-        #{freight_price},
-        #{coupon_id},
-        #{coupon_activity_id},
-        #{discount_price},
-        #{origin_price},
-        #{presale_id},
-        #{groupon_discount},
-        #{rebate_num},
-        #{confirm_time},
-        #{shipment_sn},
-        #{state},
-        #{substate},
-        #{be_deleted},
-        #{gmt_create},
-        #{gmt_modified},
-        #{groupon_id}
+        #{id}, #{customer_id}, #{shop_id}, #{order_sn}, #{pid}, #{consignee}, #{region_id},
+        #{address}, #{mobile}, #{message}, #{order_type}, #{freight_price}, #{coupon_id},
+        #{coupon_activity_id}, #{discount_price}, #{origin_price}, #{presale_id},
+        #{groupon_discount}, #{rebate_num}, #{confirm_time}, #{shipment_sn}, #{state},
+        #{substate}, #{be_deleted}, #{gmt_create}, #{gmt_modified}, #{groupon_id}
         )
     </insert>
 
@@ -108,4 +86,3 @@
     </insert>
 
 </mapper>
-
