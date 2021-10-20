@@ -55,5 +55,5 @@ mybatis:
     #输出产生的SQL
     #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     map-underscore-to-camel-case: false
-    cache-enabled: false
+    cache-enabled: true
 
