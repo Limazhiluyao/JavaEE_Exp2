@@ -14,17 +14,12 @@ server:
       min-spare: 200
 
 spring:
-  boot:
-    admin:
-      client:
-        url: http://localhost:8081
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://172.16.2.175:3306/javaee_lab2?serverTimezone=GMT%2B8
     username: root
     password: 6585
     type: com.alibaba.druid.pool.DruidDataSource
-
     druid:
       #初始化时建立物理连接的个数
       initial-size: 100
@@ -59,5 +54,6 @@ mybatis:
   configuration:
     #输出产生的SQL
     #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    map-underscore-to-camel-case: true
+    map-underscore-to-camel-case: false
+    cache-enabled: false
 
