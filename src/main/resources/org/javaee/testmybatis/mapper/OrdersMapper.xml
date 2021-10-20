@@ -47,14 +47,14 @@
 
     </sql>
 
-    <select id="selectOrderById" parameterType="Integer" 
-    resultType="org.javaee.testmybatis.model.OrderPo">
+    <select id="selectOrderById" parameterType="Integer" useCache="false" flushCache="true"
+            resultType="org.javaee.testmybatis.model.OrderPo">
         SELECT *
         FROM orders
         WHERE id = #{id}
     </select>
 
-    <select id="selectOrderItemsByOrderId" parameterType="Integer"
+    <select id="selectOrderItemsByOrderId" parameterType="Integer" useCache="false" flushCache="true"
             resultType="org.javaee.testmybatis.model.OrderItemPo">
         SELECT *
         FROM order_item
